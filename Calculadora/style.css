@@ -1,0 +1,411 @@
+  @font-face {
+    font-family: 'Digital Numbers Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Digital Numbers Regular'), url('fonts/DigitalNumbers-Regular.woff') format('woff');
+    }
+
+html {
+  min-height: 100vh;
+  background-image: url("images/texturaMaderaClara.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition-duration: 1s;
+}
+
+
+body {
+  margin-top: 1rem;
+  max-width: 350px;
+  margin: 0 auto;
+  text-align: center;  
+  border-radius: 10px;
+}
+
+#unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.mainBody{
+  background-image: url("images/texturaCalculadora.jpg");
+  height: 650px;
+  margin: 10% 0;
+  width: 100%; 
+  border-left: 2px solid #583a04;
+  border-bottom: 5px solid #583a04;
+  border-radius: 20px;
+  box-shadow: -6px 1px 8px 2px rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 5% 35% auto auto auto auto auto; 
+  justify-content: space-around;
+  transition-duration: 1s;
+} 
+
+.casio { 
+  grid-column: 2/4;
+  font-size: 1.2rem;
+  line-height: 2.3rem;
+  color: #3B5957;
+  text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+  transition: 1s;
+}
+
+.keyWindow{
+  font-family: 'Digital Numbers Regular';
+  width: 86%;
+  background-color: #BF9673;
+  border-right: 2px solid #886c53;
+  border-top: 2px solid #886c53;
+  box-shadow: inset -4px 1px 8px 2px rgba(0, 0, 0, 0.2);
+  grid-column: 1/5;
+  padding: 1.5rem;
+  margin: 0.75rem 0;
+  border-radius: 8%;
+  display: grid;
+  grid-template-rows: 0% auto 30%;
+/* Para que se pueda hacer scroll down. El eje vertical lo 
+bloquea pero no el vertical */
+  overflow-x: hidden; 
+  overflow-y: auto;
+  transition-duration: 1s;
+}
+
+#history{
+visibility: hidden;
+text-align: right;
+font-size: 1.2rem;
+color: #0b6029;
+line-height: 1.4rem;
+/* Para que se pueda hacer scroll down. El eje vertical lo 
+bloquea pero no el vertical */
+overflow-x: hidden; 
+overflow-y: auto;
+font-family: 'Digital Numbers Regular';
+/* Para bloquear el texto y que haga salto de linea */
+width: 100%;
+overflow-wrap: break-word;  
+word-wrap: break-word; 
+word-break: break-word;
+transition-duration: 1s;
+
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#history::-webkit-scrollbar, .keyWindow::-webkit-scrollbar{
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+#history, .keyWindow {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+#operation{
+  font-family: 'Digital Numbers Regular';
+  text-align: right;
+  font-size: 1.2rem;
+  color: #0b6029;
+  /* Para bloquear el texto y que haga salto de linea */
+  width: 100%;
+  overflow-wrap: break-word;  
+  word-wrap: break-word; 
+  word-break: break-word;
+  transition-duration: 1s;
+}
+
+#result{
+  font-family: 'Digital Numbers Regular';
+  color:#0b6029 ;
+  text-align: right;
+  font-size: 2rem;
+  /* Para bloquear el texto y que haga salto de linea */
+  width: 100%;
+  overflow-wrap: break-word;  
+  word-wrap: break-word; 
+  word-break: break-word;
+  transition-duration: 1s;
+}
+
+.keys {
+  font-family: 'Sono', sans-serif;
+  background-image: url('images/numerosStandbyDay.jpg');
+  background-size: cover;
+  width: 90%;
+  border-left: 1px solid rgba(54, 58, 58, 0.7);
+  border-bottom: 4px solid rgba(54, 58, 58, 0.7);
+  border-radius: 20%;
+  box-shadow: -0.5px 1px 8px 0px rgba(0, 0, 0, 0.6);
+  font-size: 25px;
+  line-height: 70px; 
+  align-self: center;
+  justify-self: center;
+  color: #363a3a;
+  transition: 1s;
+}
+
+.keys:hover {
+  background-image: url('images/hover.jpg');
+  background-size: cover;
+  border-left: 1px solid rgba(54, 58, 58, 0.7);
+  border-bottom: 4px solid rgba(54, 58, 58, 0.7);
+  border-radius: 20%;
+  font-size: 25px;
+  line-height: 70px; 
+  align-items: center;
+  transition: none;
+}
+
+.keys:active {
+  background-image: url('images/numerosActiveDay.jpg');
+  background-size: cover;
+  border-top: 4px solid #43372d;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 1px solid #43372d;
+  color: white;
+  box-shadow: inset -6px 4px 8px 2px rgba(0, 0, 0, 0.2);
+  transition: none;
+} 
+
+.keysOper{
+  font-family: 'Sono', sans-serif;
+  background-image: url('images/operadoresStandbyDay.jpg');
+  background-size: cover;
+  font-weight: bold; 
+  color: #363a3a;
+  width: 90%;
+  border-left: 1px solid rgba(54, 58, 58, 0.7);
+  border-bottom: 4px solid rgba(54, 58, 58, 0.7);
+  box-shadow: -0.5px 0.5px 8px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 20%;
+  font-size: 25px;
+  line-height: 70px; 
+  align-self: center;
+  justify-self: center;
+  transition: 1s;
+}
+
+.keysOper:hover, #letterC:hover, #letterCE:hover{
+  background-image: url('images/hover.jpg');
+  background-size: cover;
+  border-left: 1px solid rgba(54, 58, 58, 0.7);
+  border-bottom: 4px solid rgba(54, 58, 58, 0.7);
+  transition: none;
+
+}
+
+.keysOper:active, #letterC:active, #letterCE:active{
+  color: white;
+  background-image: url('images/operadoresActiveDay.jpg');
+  background-size: cover;
+  border-top: 4px solid #43372d;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 1px solid #43372d;
+  box-shadow: inset -6px 4px 8px 2px rgba(0, 0, 0, 0.2);
+  transition: none;
+}
+
+#parentContainerCeAndC {
+  position: relative;
+}
+
+.keyDiagonal{ 
+  font-family: 'Sono', sans-serif;
+  font-weight: bold; 
+  color: #363a3a;
+  width: 90%;
+  border-left: 1px solid rgba(54, 58, 58, 0.7);
+  border-bottom: 4px solid rgba(54, 58, 58, 0.7);
+  border-radius: 20%;
+  font-size: 25px;
+}
+
+#letterC{
+  background-image: url('images/operadoresStandbyDay.jpg');
+  background-size: cover;
+  height: 70px;
+  line-height: 0px;
+  text-align: left;
+  position: absolute;
+  top: 3px;
+  left: 4.5px;
+  clip-path: polygon(0 0, 0 99%, 99% 0); 
+  transition: 1s;
+}
+
+#letterCE{
+  background-image: url('images/CEStandbyDay.jpg');
+  background-size: cover;
+  height: 70px;
+  line-height: 50px; 
+  text-align: right;
+  position: absolute;
+  bottom: 2px;
+  right: 4.5px;
+  clip-path: polygon(100% 100%, 1% 100%, 100% 1%);
+  transition: 1s;
+}
+
+#pElementC {
+  padding-left:0.7rem;
+}
+
+#pElementCe {
+  padding-right:0.5rem;
+}
+
+/* ---------------------DARK MODE--------------------- */
+/* ---------------------DARK MODE--------------------- */
+
+.madera.dark{
+  background-image: url("images/texturaMaderaOscura.jpeg");
+  transition-duration: 1s;
+}
+  
+.mainBody.dark{
+  background-image: url("images/texturaCalculadoraNoche.jpg");
+  transition-duration: 1s;
+  border-left: 2px solid #1e1401;
+  border-bottom: 5px solid #1e1401;
+}
+
+.keys.dark{
+  background-image: url("images/numerosStandbyNight.jpg");
+  background-size: cover;
+  border-left: 1px solid #000000;
+  border-bottom: 4px solid #000000;
+  box-shadow: -0.5px 1px 8px 0px rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 0 20px #fff, 0 0 30px #e60073,  0 0 40px #e60073;
+}
+  
+.keysOper.dark{
+  background-image: url("images/operadoresStandbyNigth.jpg");
+  color: #c4c0c0;
+  border-left: 1px solid black;
+  border-bottom: 4px solid black;
+  text-shadow: 0 0 20px #fff, 0 0 30px #e60073,  0 0 40px #e60073;
+}
+
+.keysOper.dark:hover, .keys.dark:hover{
+  background-image: url("images/hover.jpg");
+  color: #c4c0c0;
+  transition: none;
+}
+
+.keysOper.dark:active {
+  background-image: url("images/operadoresActiveNight.jpg");
+  color: #c4c0c0;
+  background-size: cover;
+  border-top: 4px solid black;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 1px solid black;
+  box-shadow: inset -6px 4px 8px 2px rgba(0, 0, 0, 0.2);
+  transition: none;
+}
+
+.keys.dark:active {
+  background-image: url("images/numerosActiveNight.jpg");
+  color: #c4c0c0;
+  text-shadow: 1px 1px 15px white;
+  background-size: cover;
+  border-top: 4px solid black;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 1px solid black;
+  box-shadow: inset -6px 4px 8px 2px rgba(0, 0, 0, 0.2);
+  transition: none;
+}
+
+.keyWindow.dark{
+  background-color: #59280B;
+  border-right: 2px solid #292119;
+  border-top: 2px solid #292119;
+  transition-duration: 1s;
+  text-shadow: 0 0 30px #fcffe5;
+}
+
+#operation.dark, #result.dark, #history.dark{
+  color:#0dce51;
+}
+
+#letterC.dark{
+  color: #c4c0c0;
+  background-image: url("images/operadoresStandbyNigth.jpg");;
+  background-size: cover;
+  border-left: 1px solid #000000;
+  border-bottom: 4px solid #000000;
+  box-shadow: -0.5px 1px 8px 0px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 20px #fff, 0 0 30px #e60073,  0 0 40px #e60073;
+}
+
+#letterCE.dark{
+  color: #c4c0c0;
+  background-image: url("images/CEstandbyNight.jpg");
+  background-size: cover;
+  border-left: 1px solid #000000;
+  border-bottom: 4px solid #000000;
+  box-shadow: -0.5px 1px 8px 0px rgba(0, 0, 0, 0.6);
+ text-shadow: 0 0 20px #fff, 0 0 30px #e60073,  0 0 40px #e60073;
+}
+
+#letterCE.dark:hover, #letterC.dark:hover{
+  background-image: url("images/hover.jpg");
+  color: #c4c0c0;
+  transition: none;
+}
+
+#letterCE.dark:active, #letterC.dark:active{
+  background-image: url("images/operadoresStandbyNigth.jpg");
+  color: #c4c0c0;
+  background-size: cover;
+  border-top: 4px solid black;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 1px solid black;
+  box-shadow: inset -6px 4px 8px 2px rgba(0, 0, 0, 0.2);
+  transition: none;
+}
+
+.casio.dark {
+  color: #ffffff;
+  animation: glow 1s ease-in-out infinite alternate;
+  transition: 1s;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+
+/* ---------------------BOTÓN--------------------- */
+/* ---------------------BOTÓN--------------------- */
+
+#buttonNightMode{
+  background-image: url("images/dark.png");
+  background-size: cover;
+  height: 45px;
+  width: 60%;
+  margin-block: -6px;
+  margin-left: 30%;
+}
+
+.button.dark{
+  background-position: right center;
+}
+
+
